@@ -1,5 +1,7 @@
 from pyparsing import *
 
+#prueba de pull
+
 class Compilador:
 
     def __init__(self):
@@ -82,6 +84,9 @@ class Compilador:
                 print('Se esperaba una palabra reservada y se recibio otra opción. (linea:1, columna:',err.column,')')
             else:
                 print('Se esperaba una funcion y se recibio otra opción. (linea:1, columna:',err.column,')')
+
+    def ciclo_y_condicional(self, opciones5, opc, opc2):
+        pass
 
 opciones1 = {1:10,2:'id',3:'diez'}
 opciones2 = {1:10,2:'id',3:'diez',5:'Si:'}
