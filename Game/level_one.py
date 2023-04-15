@@ -22,6 +22,10 @@ drag_box = DragBox(0, 700)
 drag_box2 = DragBox(75, 700)
 drag_box3 = DragBox(150, 700)
 
+#Cracion de Ventana
+layout_opc = pygame.image.load('Img/layout_opc.png').convert()
+screen.blit(layout_opc,[40,80])
+
 # Creamos un grupo de sprites para actualizar y dibujar
 all_sprites = pygame.sprite.Group()
 all_sprites.add(drag_box,drag_box2,drag_box3)
@@ -57,9 +61,3 @@ def level_one():
         # Esperamos un poco para mantener el FPS
         clock.tick(FPS)
     pygame.quit()
-
-
-
-
-
-
