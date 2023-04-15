@@ -4,6 +4,7 @@ from level_one import level_one
 from level_two import level_two
 from level_tree import level_tree
 from level_four import level_four
+from DragBox import DraggableRectangle
 
 # Definimos algunas constantes para el juego
 SCREEN_WIDTH = 1280
@@ -16,12 +17,13 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Menu")
 
 #Imagenes iniciales
-start_img = pygame.image.load('Img/start_btn.png').convert_alpha()
-exit_img = pygame.image.load('Img/exit_btn.png').convert_alpha()
+start_img = pygame.image.load('Compiler/Game/Img/start_btn.png').convert_alpha()
+exit_img = pygame.image.load('Compiler/Game//Img/exit_btn.png').convert_alpha()
 
 #Crear botones
 start_button = button.Button(300, 300, start_img, 0.8)
 exit_button = button.Button(650, 300, exit_img, 0.8)
+
 
 #Loop del juego
 run = True
@@ -42,8 +44,9 @@ while run:
 	for event in pygame.event.get():
 		#Salir del Juego
 		if event.type == pygame.QUIT:
-			run = False
+			run = False	
 
 	pygame.display.update()
+	
 
 pygame.quit()

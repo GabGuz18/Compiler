@@ -1,27 +1,38 @@
-import pygame
+import pygame,sys
 #Colores constantes
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
-# Clase para la caja que se arrastra
-class DragBox(pygame.sprite.Sprite):
-    def __init__(self, x, y):
-        super().__init__()
-        self.image = pygame.Surface((100, 50))
-        self.image.fill(BLACK)
-        self.rect = self.image.get_rect()
-        self.rect.x = x
-        self.rect.y = y
-        self.dragging = False
+RED = (255, 0, 0)
 
-    def update(self):
-        if self.dragging:
-            pos = pygame.mouse.get_pos()
-            self.rect.x = pos[0] - 50
-            self.rect.y = pos[1] - 25
+pygame.font.init()
+
+# Clase para la caja que se arrastra
+class DraggableRectangle:
+    def __init__(self, x, y, width, height, text):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.rect = pygame.Rect(self.x,self.y, self.width, self.height)
+        self.text = pygame.font.SysFont('Arial', 22).render(text, True, WHITE)
+        self.dragging = False
+        self.status = False
 
     def handle_event(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if self.rect.collidepoint(event.pos):
-                self.dragging = True
+                if self.status == True:
+                    self.rect = pygame.Rect(self.x,self.y, self.width, self.height)
+                    self.status = False
+                else:
+                    self.dragging = True
+
         elif event.type == pygame.MOUSEBUTTONUP:
             self.dragging = False
+        elif event.type == pygame.MOUSEMOTION:
+            if self.dragging:
+                self.rect.move_ip(event.rel)
+
+    def draw(self, screen):
+        pygame.draw.rect(screen, RED, self.rect)
+        screen.blit(self.text, (self.rect.x+self.rect.width/2-self.text.get_width()/2, self.rect.y+self.rect.height/2-self.text.get_height()/2))
