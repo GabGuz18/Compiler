@@ -1,5 +1,7 @@
 from pyparsing import *
 
+#prueba de pull
+
 class Compilador:
 
     def __init__(self):
@@ -7,10 +9,12 @@ class Compilador:
 
     def algo(self):
         print('Algo() -> Aqui hace algo\n')
+        #Aburrido()
 
     def instruccion(self,opciones,opc):
 
         print('------------------------- Nivel 1 -------------------------')
+        #id = divertido
 
         instr = Word(alphas) + "=" + Word(nums)
         comp = f"id={opciones[opc]}"
@@ -83,10 +87,29 @@ class Compilador:
             else:
                 print('Se esperaba una funcion y se recibio otra opción. (linea:1, columna:',err.column,')')
 
+    def ciclo_y_condicional(self, opciones5, opc, opc2):
+        print('------------------------- Nivel 5 -------------------------')
+        #mientras: aburrido() Entonces: divertido = divertido + 10 Si: divertido = 100 Entonces: regresar()  
+
+        instr = Word(alphas) + ":" + Word(alphas) + '()' + Word(alphas) + ':' + Word(alphas) + '=' + Word(alphas) + "+" + Word(nums) + Word(alphas) + ":" + Word(alphas) + '=' + Word(nums) + Word(alphas) + ':' + Word(alphas) + '()'
+        comp = f"{opciones5[opc]}: Aburrido() Entonces: divertido = {opciones5[opc2]} + 10 Si: divertido = 100 Entonces: Algo()"
+        
+        try:
+            print(f"{opciones5[opc]}: Aburrido() Entonces: divertido = {opciones5[opc2]} + 10 Si: divertido = 100 Entonces: Algo()")
+        except ParseException as err:
+            print(f"{opciones5[opc]}: Aburrido() Entonces: divertido = {opciones5[opc2]} + 10 Si: divertido = 100 Entonces: Algo()")
+            print(" " * (err.column - 1) + "^")
+            print('Error en la declaracion de ciclo.\n')
+            if err.column == 1:
+                print('Se esperaba una palabra reservada y se recibio otra opción. (linea:1, columna:',err.column,')')
+            else:
+                print('Se esperaba una variable y se recibio otra opción. (linea:1, columna:',err.column,')')
+
 opciones1 = {1:10,2:'id',3:'diez'}
 opciones2 = {1:10,2:'id',3:'diez',5:'Si:'}
 opciones3 = {1:'Si',2:'id',3:'diez',4:'x',5:10,6:'Algo'}
 opciones4 = {1:'Si',2:'id',3:'Mientras',4:'x',5:10,6:'Algo',7:'diez'}
+opciones5 = {1:'Si',2:'id',3:'Mientras',4:'x',5:10,6:'Algo',7:'diez',8:'Hasta', 9:'Aburrido'}
 
 comp = Compilador()
 comp.instruccion(opciones1,1)
