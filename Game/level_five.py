@@ -1,11 +1,8 @@
 import pygame,sys
-#create display window
-import pygame,sys
 from DragBox import DraggableRectangle
 from Dropzone import DropZone
 import button
 from compilador import Compilador
-from level_five import level_five
 #Colores constantes
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -24,14 +21,14 @@ clock = pygame.time.Clock()
 
 # Creamos la caja que se arrastra
 drag_box = DraggableRectangle(85, 510,100,50,"Mientras","Mientras")
-drag_box2 = DraggableRectangle(205, 510,100,50,"Beber","Beber")
-drag_box3 = DraggableRectangle(85, 590,100,50,"5",5)
-drag_box4 = DraggableRectangle(205, 590,100,50,"id","id")
+drag_box2 = DraggableRectangle(205, 510,100,50,"Si","Si")
+drag_box3 = DraggableRectangle(85, 590,100,50,"Divertido","Divertido")
+drag_box4 = DraggableRectangle(205, 590,100,50,"10",10)
 Opciones = [drag_box,drag_box2,drag_box3,drag_box4]
 
 #Creamos los Dropzone
-rect1 = DropZone(513, 132, 100, 50, "")
-rect2 = DropZone(580, 275, 100, 50, "")
+rect1 = DropZone(514, 130, 100, 50, "")
+rect2 = DropZone(717,190,100,50,"" )
 Zonas = [rect1,rect2]
 
 #Botones
@@ -43,12 +40,14 @@ layout_opc = pygame.image.load('Compiler/Game/Img/layout_opc.png').convert_alpha
 layout_ventana = pygame.image.load('Compiler/Game/Img/layout_ventana.png').convert_alpha()
 background = pygame.image.load('Compiler/Game/Img/background.png').convert_alpha()
 layout_reto = pygame.image.load('Compiler/Game/Img/layout_reto.png').convert_alpha()
-level__txt = pygame.image.load('Compiler/Game/Img/Level_tree.png').convert_alpha()
+level__txt = pygame.image.load('Compiler/Game/Img/Level_Five.png').convert_alpha()
 comp = Compilador()
 
 # Creamos un grupo de sprites para actualizar y dibujar
 #all_sprites = pygame.sprite.Group()
 #all_sprites.add(drag_box,drag_box2,drag_box3)
+
+
 def Checar(Opciones,Zonas):
     #Checar el Dropzone si colisiona
     for Zona in Zonas:
@@ -57,11 +56,11 @@ def Checar(Opciones,Zonas):
                 Opcion.rect.center = Zona.rect.center
                 Opcion.status = True
                 Zona.Opcion = Opcion.Opcion
-
-def level_four(): 
+def level_five(): 
     running = True
-    print("level four")
+    print("level five")
     error = None
+
     while running:
         #Condicion de Nivel
         
@@ -106,12 +105,12 @@ def level_four():
                 opc = rect1.Opcion
                 opc2 = rect2.Opcion
                 print(opc)
-                error = comp.ciclo(opc,opc2)
-        
+                error = comp.ciclo_y_condicional(opc,opc2)
+            
         if error == False:
             comp.Print_txt(screen)
         elif error == True:
-            level_five()
+            running = False
 
         # Actualizamos la pantalla
         pygame.display.flip()
@@ -119,6 +118,5 @@ def level_four():
         # Esperamos un poco para mantener el FPS
         clock.tick(FPS)
     pygame.quit()
-      
       
       

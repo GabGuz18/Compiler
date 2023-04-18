@@ -4,7 +4,13 @@ from level_one import level_one
 from level_two import level_two
 from level_tree import level_tree
 from level_four import level_four
-from DragBox import DraggableRectangle
+from level_five import level_five
+
+#Niel 1: (1),id ,Diez,20
+#Nivel 2: (id), 1 , Cinco, Si
+#Nivel 3: (Si, Correr), 20, Mientras 
+#Nivel 4: (Mientras, Beber), , 5 , id
+#Nivel 5: (Mientras,Divertido), 5 , Si   
 
 # Definimos algunas constantes para el juego
 SCREEN_WIDTH = 1280
