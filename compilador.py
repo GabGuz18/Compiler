@@ -14,7 +14,7 @@ class Compilador:
     def instruccion(self,opc):
 
         print('------------------------- Nivel 1 -------------------------')
-        #id = divertido
+        #1
 
         instr = Word(alphas) + "=" + Word(nums)
         comp = f"id={opc}"
@@ -32,9 +32,10 @@ class Compilador:
     def instruccion2(self,opc,opc2):
 
         print('------------------------- Nivel 2 -------------------------')
+        #Id
 
         instr = Word(alphas) + "=" + Word(alphas) + '+' + Word(nums)
-        comp = f"id={opc}+{opc2}"
+        comp = f"id={opc}+1"
         
         try:
             self.id = self.id + int(instr.parseString(comp)[4])
@@ -51,6 +52,7 @@ class Compilador:
 
     def condicional(self,opc,opc2):
         print('------------------------- Nivel 3 -------------------------')
+        #Si correr
 
         instr = Word(alphas) + ":" + Word(alphas) + '=' + Word(nums) + Word(alphas) + ':' + Word(alphas) + '()' 
         comp = f"{opc}: id={self.id} Entonces: {opc2}()"
@@ -70,6 +72,7 @@ class Compilador:
 
     def ciclo(self, opc, opc2):
         print('------------------------- Nivel 4 -------------------------')
+        #Mientras Beber
 
         instr = Word(alphas) + ":" + Word(alphas) + '=' + Word(nums) + Word(alphas) + ':' + Word(alphas) + '()' 
         comp = f"{opc}: id={self.id} Entonces: {opc2}()"
