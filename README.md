@@ -7,3 +7,5 @@ Este proyecto es un compilador para niños de 5 a 10 años en el cual se enseña
 3. Condicionales
 4. Ciclos
 5. Condicionales y ciclos
+
+Para utilizarlo se debe correr el archivo `main.py`
