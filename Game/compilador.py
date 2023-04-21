@@ -51,22 +51,30 @@ class Compilador:
         comp = f"id={opc}+{opc2}"
         
         try:
+
+            if opc != 'id':
+                raise ParseException('error variable')
+
             self.id = self.id + int(instr.parseString(comp)[4])
             print(f"id = {opc} + {opc2}")
             print(f"Ahora:\nid = {self.id}")
             return True
         except ParseException as err:
-            print(f"id = {opc} + {opc2}")
-            print(" " * (err.column - 1) + "^")
-            print('Error en la asignación de valores.\n')
-            if err.column == 4:
-                print('Se esperaba una variable y se recibio un numero. (linea:1, columna:',err.column,')')
-                self.sentence = 'Se esperaba una variable y se recibio un numero. (linea:1, columna:',err.column,')'
+            if opc == 'Cinco':
+                self.sentence = "Esta variable 'cinco' no esta declarada"
                 return False
             else:
-                print('Se esperaba un numero y se recibio una variable. (linea:1, columna:',err.column,')')
-                self.sentence = 'Se esperaba un numero y se recibio una variable. (linea:1, columna:',err.column,')'
-                return False
+                print(f"id = {opc} + {opc2}")
+                print(" " * (err.column - 1) + "^")
+                print('Error en la asignación de valores.\n')
+                if err.column == 4:
+                    print('Se esperaba una variable y se recibio un numero. (linea:1, columna:',err.column,')')
+                    self.sentence = 'Se esperaba una variable y se recibio un numero. (linea:1, columna:',err.column,')'
+                    return False
+                else:
+                    print('Se esperaba un numero y se recibio una variable. (linea:1, columna:',err.column,')')
+                    self.sentence = 'Se esperaba un numero y se recibio una variable. (linea:1, columna:',err.column,')'
+                    return False
 
     def condicional(self,opc,opc2):
         print('------------------------- Nivel 3 -------------------------')

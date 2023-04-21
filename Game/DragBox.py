@@ -15,7 +15,7 @@ class DraggableRectangle:
         self.height = height
         self.rect = pygame.Rect(self.x,self.y, self.width, self.height)
         self.text = pygame.font.SysFont('Minecraft', 15).render(text, True, WHITE)
-        self.image = pygame.image.load('Compiler/Game/Img/Opcion.png').convert_alpha()
+        self.image = pygame.image.load('Game/Img/Opcion.png').convert_alpha()
         self.dragging = False
         self.status = False
         self.Opcion = Opcion

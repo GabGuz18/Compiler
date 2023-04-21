@@ -10,7 +10,7 @@ class DropZone:
         self.rect = pygame.Rect(x, y, width, height)
         self.text = pygame.font.SysFont('Minecraft', 22).render(text, True, WHITE)
         self.Opcion = None
-        self.image = pygame.image.load('Compiler/Game/Img/Dropzone2.png').convert_alpha()
+        self.image = pygame.image.load('Game/Img/Dropzone2.png').convert_alpha()
     
     def draw(self, screen):
         screen.blit(self.image, self.rect)

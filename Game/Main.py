@@ -23,8 +23,8 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Menu")
 
 #Imagenes iniciales
-start_img = pygame.image.load('Compiler/Game/Img/start_btn.png').convert_alpha()
-exit_img = pygame.image.load('Compiler/Game//Img/exit_btn.png').convert_alpha()
+start_img = pygame.image.load('Game/Img/start_btn.png').convert_alpha()
+exit_img = pygame.image.load('Game//Img/exit_btn.png').convert_alpha()
 
 #Crear botones
 start_button = button.Button(300, 300, start_img, 0.8)

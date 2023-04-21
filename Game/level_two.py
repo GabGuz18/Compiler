@@ -33,15 +33,15 @@ rect1 = DropZone(666, 207, 100, 50, "")
 Zonas = [rect1]
 
 #Botones
-start_img = pygame.image.load('Compiler/Game/Img/start_btn.png').convert_alpha()
+start_img = pygame.image.load('Game/Img/start_btn.png').convert_alpha()
 start_button = button.Button(880,550 ,start_img, 0.8)
 
 #Cracion de Ventana
-layout_opc = pygame.image.load('Compiler/Game/Img/layout_opc.png').convert_alpha()
-layout_ventana = pygame.image.load('Compiler/Game/Img/layout_ventana.png').convert_alpha()
-background = pygame.image.load('Compiler/Game/Img/background.png').convert_alpha()
-layout_reto = pygame.image.load('Compiler/Game/Img/layout_reto.png').convert_alpha()
-level__txt = pygame.image.load('Compiler/Game/Img/Level_Two.png').convert_alpha()
+layout_opc = pygame.image.load('Game/Img/layout_opc.png').convert_alpha()
+layout_ventana = pygame.image.load('Game/Img/layout_ventana.png').convert_alpha()
+background = pygame.image.load('Game/Img/background.png').convert_alpha()
+layout_reto = pygame.image.load('Game/Img/layout_reto.png').convert_alpha()
+level__txt = pygame.image.load('Game/Img/Level_Two.png').convert_alpha()
 comp = Compilador()
 
 # Creamos un grupo de sprites para actualizar y dibujar
